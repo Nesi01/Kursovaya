@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1590797326 source:d:\github\kursovaya\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1590797309 source:d:\github\kursovaya\file_operations.c
+	"file_operations.h"
+
+1590797152 d:\github\kursovaya\file_operations.h
+	<stdio.h>
+	<stdlib.h>
+
