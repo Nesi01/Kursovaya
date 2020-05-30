@@ -7,7 +7,6 @@
 
 
 char **simple_split(char *str, int length, char sep);
-void ClearStringArray(char **str, int n);
 comps *struct_fill(char **str);
 comps *new_struct();
 void print_header();

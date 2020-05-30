@@ -47,7 +47,7 @@ void read_from_csv(FILE* file, head* head_file)
 {
     int slen,i,number_of_lines;
     char **s2=NULL;
-    studs *s3=NULL;
+    comps *s3=NULL;
     char s1[256];
     char sep;
     sep=';';
@@ -94,7 +94,7 @@ void create_file()
 
     file = fopen(filename,"w");
     fclose(file);
-    printf("File %s was created.\n", filename);
+    printf("File %s was created.\n\n", filename);
 }
 
 
@@ -120,6 +120,7 @@ void delete_file()
         file = fopen(filename,"r");
     }
     fclose(file);
-    if (remove(filename)==0) printf("File %s was deleted.\n",filename);
-    else printf("File %s wasn't deleted.\n",filename);
+    system("cls");
+    if (remove(filename)==0) printf("File %s was deleted.\n\n",filename);
+    else printf("File %s wasn't deleted.\n\n",filename);
 }

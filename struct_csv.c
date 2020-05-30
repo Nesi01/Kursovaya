@@ -43,25 +43,17 @@ char **simple_split(char *str, int length, char sep)
         }
         else
         {
-            ClearStringArray(str_array,count);
+
+            for(i=0;i<count;i++)
+            {
+                free(str_array[i]);
+                str_array[i]=NULL;
+            }
+            free(str_array);
+            str_array = NULL;
         }
      }
      return str_array;
-}
-
-
-void ClearStringArray(char **str, int n)
-{
-    int i;
-
-    for(i=0;i<n;i++)
-    {
-        free(str[i]);
-        str[i]=NULL;
-    }
-    free(str);
-    str=NULL;
-
 }
 
 
