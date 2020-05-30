@@ -24,7 +24,7 @@ int main()
         {
         case 1:     //Open file
             //system("cls");
-         //   open_csv();
+            open_csv();
             break;
         case 2:     //Create file
             system("cls");
