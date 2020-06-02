@@ -14,6 +14,7 @@ typedef struct bike_components comps;
 
 struct node{
 
+    int id;
     comps *data;
     struct node *next;
     struct node *prev;

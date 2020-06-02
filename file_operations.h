@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "structs.h"
+#include "data_operations.h"
 
 
 void open_csv(head* clipboard);

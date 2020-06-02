@@ -104,6 +104,6 @@ comps *new_struct()
 
 void print_header()
 {
-    printf("|%30s |%10s |%5s |%9s |%4s|%5s|\n","Name of the bike component","Type","Year","Price(in pounds)","Reviews","Rating");
-    printf("+-------------------------------+-----------+------+-----------------+-------+------+\n");
+    printf("|   |%30s |%10s |%5s |%9s |%4s|%5s|\n","Name of the bike component","Type","Year","Price(in pounds)","Reviews","Rating");
+    printf("+---+-------------------------------+-----------+------+-----------------+-------+------+\n");
 }

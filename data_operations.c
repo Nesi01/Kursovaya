@@ -9,9 +9,10 @@ void menu(head* clipboard,head* head_file,char* filename)
     system("cls");
     do
     {
-        printf("    File %s\n",filename);
+        printf("File %s\n",filename);
         if(head_file->first!=NULL)
         {
+            printf("\n");
             print_header();
             list_out(head_file);
 
@@ -34,6 +35,10 @@ void menu(head* clipboard,head* head_file,char* filename)
             {
             case 1:
                 system("cls");
+                printf("File %s\n",filename);
+                printf("\n");
+                print_header();
+                list_out(head_file);
                 add_info(head_file);
                 break;
             case 2:
@@ -110,7 +115,7 @@ void menu(head* clipboard,head* head_file,char* filename)
 
 void add_info(head *head_file)
 {
-    int choice;
+    int choice, n;
     comps *str0=NULL;
 
     do
@@ -119,7 +124,7 @@ void add_info(head *head_file)
         printf("+-+---------------------------+\n");
         printf("|1| - First                   |\n");
         printf("|2| - Last                    |\n");
-        printf("|3| - After(notworkongyet!)                   |\n");
+        printf("|3| - Number                  |\n");
         printf("|0| - Cancel                  |\n");
         printf("Your choice: ");
         scanf("%d", &choice);
@@ -132,6 +137,7 @@ void add_info(head *head_file)
             printf("Adding:\n");
             str0 = new_struct();
             add_first(head_file,str0);
+            normalize_id(head_file);       //Making right id order
             system("cls");
             printf("Added the first\n");
             choice = 0;
@@ -146,10 +152,25 @@ void add_info(head *head_file)
             choice = 0;
             break;
         case 3:
-            printf("U can't read? It doesn't work\n");
+            do
+            {
+                printf("Enter number of position to add: ");
+                scanf("%d",&n);
+                getchar();
+                if(n>head_file->cnt+1) printf("There are less than %d positions!\n",n);
+            } while (n>head_file->cnt+1);
+            system("cls");
+            printf("Adding into position number %d:\n",n);
+            str0 = new_struct();
+            add_in_position(head_file,str0,n);
+            normalize_id(head_file);
+            system("cls");
+            printf("Added into the position number %d\n",n);
+            choice = 0;
+
             break;
         case 0:
-
+            system("cls");
             break;
         default:
             system("cls");
@@ -173,6 +194,7 @@ void add_first(head *head_file, comps *data)
     head_file->first->prev = temp;
     head_file->first = temp;
     head_file->cnt += 1;
+    temp->id = head_file->cnt;
     temp->data = data;
 }
 
@@ -188,5 +210,33 @@ void add_last(head *head_file, comps *data)
     head_file->last->next = temp;
     head_file->last = temp;
     head_file->cnt += 1;
+    temp->id = head_file->cnt;
     temp->data = data;
+}
+
+
+void add_in_position(head *head_file, comps *data, int n)
+{
+    node *temp;
+    node *temp2;
+    int i;
+
+    if(n==1) add_first(head_file,data);
+    else if(n==head_file->cnt+1) add_last(head_file,data);
+    else
+    {
+        temp2 = head_file->first;
+        temp = (node *)malloc(sizeof(node));
+        temp->data = (comps*)malloc(sizeof(comps));
+
+        for(i=1;i<n;i++) temp2 = temp2->next;
+        temp->next = temp2;
+        temp->prev = temp2->prev;
+        temp2->prev->next = temp;
+        temp2->prev = temp;
+        head_file->cnt += 1;
+        temp->id = head_file->cnt;
+        temp->data = data;
+    }
+
 }

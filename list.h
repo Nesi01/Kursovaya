@@ -9,5 +9,6 @@
 head *create_head();
 void create_node(comps *data, head *head);
 void list_out(head *head);
+void normalize_id(head *head_file);
 
 #endif // LIST_H_INCLUDED
