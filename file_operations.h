@@ -6,7 +6,7 @@
 #include "structs.h"
 
 
-void open_csv();
+void open_csv(head* clipboard);
 void read_from_csv(FILE* file, head* head_file);
 void create_file();
 void delete_file();

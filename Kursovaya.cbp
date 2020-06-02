@@ -31,9 +31,26 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="data_operations.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="data_operations.h" />
+		<Unit filename="file_operations.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="file_operations.h" />
+		<Unit filename="list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="list.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="struct_csv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="struct_csv.h" />
+		<Unit filename="structs.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

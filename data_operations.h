@@ -6,5 +6,8 @@
 #include "structs.h"
 
 
+void menu(head* clipboard,head* head_file, char* filename);
+
+
 
 #endif // DATA_OPERATIONS_H_INCLUDED

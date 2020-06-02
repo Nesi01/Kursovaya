@@ -75,7 +75,7 @@ void read_from_csv(FILE* file, head* head_file)
 
         s2=simple_split(s1,slen,sep);
         s3 = struct_fill(s2);
-        add_in_order(head_file,s3); //REPLACE
+ //       add_in_order(head_file,s3); //REPLACE
     }
 
 }

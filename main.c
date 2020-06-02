@@ -5,6 +5,9 @@ int main()
 {
 
     int choice;
+    head *clipboard=NULL; //to copy and paste through the files
+
+    clipboard = create_head();
 
     do
     {
@@ -24,7 +27,7 @@ int main()
         {
         case 1:     //Open file
             //system("cls");
-            open_csv();
+            open_csv(clipboard);
             break;
         case 2:     //Create file
             system("cls");
@@ -36,7 +39,7 @@ int main()
             break;
         case 0:
             system("cls");
-            printf("EXIT");
+            printf("EXIT\n");
             break;
         default:
             system("cls");
@@ -47,6 +50,7 @@ int main()
     } while(choice!=0);
 
 
+    //¬€œŒÀÕ»“‹ Œ◊»—“ ” CLIPBOARD
 
     return 0;
 }
