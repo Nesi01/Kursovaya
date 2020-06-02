@@ -2,7 +2,7 @@
 
 
 
-void open_csv()
+void open_csv(head* clipboard)
 {
     int slen;
     FILE *file;
@@ -26,17 +26,22 @@ void open_csv()
         file = fopen(filename,"r");
     }
 
-    read_from_csv(file,head_file);
-
+    fseek(file, 0, SEEK_END);
+    if(ftell(file)!=0)
+    {
+        fseek(file, 0, SEEK_SET);
+        read_from_csv(file,head_file);
+    }
     fclose(file);
 
     //FUNC FROM DATA_OPERATIONS
     //probably menu with: add,save,change,delete,sort,search
     //OTHER FUNCS
+    menu(clipboard,head_file,filename); //Operations with data
 
 
     /*if((head2->cnt) == 1) free_head(head2);
-    else if((head2->cnt) > 1) free_list(head2);        //LATER mb in some func
+    else if((head2->cnt) > 1) free_list(head2);        //LATER, mb in some func
     else if ((head2->cnt) == 0) free(head2);*/
 
 
@@ -75,7 +80,7 @@ void read_from_csv(FILE* file, head* head_file)
 
         s2=simple_split(s1,slen,sep);
         s3 = struct_fill(s2);
- //       add_in_order(head_file,s3); //REPLACE
+        add_last(head_file,s3); //REPLACE
     }
 
 }

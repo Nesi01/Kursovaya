@@ -1,29 +1,35 @@
 # depslib dependency file v1.0
-1591111747 source:d:\github\kursovaya\main.c
+1591122554 source:d:\github\kursovaya\main.c
 	<stdio.h>
 	<stdlib.h>
+	"file_operations.h"
+	"data_operations.h"
+	"list.h"
+	"struct_csv.h"
+	"structs.h"
 
-1591112551 source:d:\github\kursovaya\file_operations.c
+1591124808 source:d:\github\kursovaya\file_operations.c
 	"file_operations.h"
 
-1590803503 d:\github\kursovaya\file_operations.h
+1591118739 d:\github\kursovaya\file_operations.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"structs.h"
 
-1590803499 source:d:\github\kursovaya\data_operations.c
+1591124010 source:d:\github\kursovaya\data_operations.c
 	"data_operations.h"
 
-1590803500 d:\github\kursovaya\data_operations.h
+1591124010 d:\github\kursovaya\data_operations.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"structs.h"
+	"struct_csv.h"
 
 1589322794 d:\github\kursovaya\structs.h
 
-1589748023 source:d:\github\kursovaya\list.c
+1591123790 source:d:\github\kursovaya\list.c
 	"list.h"
 
 1590803497 d:\github\kursovaya\list.h

@@ -34,12 +34,13 @@ void create_node(comps *data, head *head)
 
 void list_out(head *head)
 {
-      node *p;
-      int i;
+        node *p;
+        int i;
 
-      p = head->first;
-      //while(p != NULL){  //Isn't used because of circular list
-      for(i=0;i<head->cnt;i++){
+        p = head->first;
+        //while(p != NULL){  //Isn't used because of circular list
+        for(i=0;i<head->cnt;i++)
+        {
             printf("|%30s |%10s |%5d |%16.2f |%6d |%5.1f |\n",
             p -> data -> name,
             p -> data -> type,
@@ -48,6 +49,6 @@ void list_out(head *head)
             p -> data -> reviews,
             p -> data -> rating);
             p = p->next;
-      }
-      printf("\n");
+        }
+        printf("\n");
 }

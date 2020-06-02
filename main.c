@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "file_operations.h"
+#include "data_operations.h"
+#include "list.h"
+#include "struct_csv.h"
+#include "structs.h"
+
 
 int main()
 {
@@ -26,7 +32,6 @@ int main()
         switch(choice)
         {
         case 1:     //Open file
-            //system("cls");
             open_csv(clipboard);
             break;
         case 2:     //Create file
