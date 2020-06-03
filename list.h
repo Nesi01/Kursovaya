@@ -10,5 +10,10 @@ head *create_head();
 void create_node(comps *data, head *head);
 void list_out(head *head);
 void normalize_id(head *head_file);
+void free_head(head *q);
+void free_node(node *temp);
+void free_list(head *q);
+void free_at_all(head *head2);
+void free_nodes_only(head *q);
 
 #endif // LIST_H_INCLUDED
