@@ -39,7 +39,6 @@ void open_csv(head* clipboard)
     //OTHER FUNCS
     menu(clipboard,head_file,filename); //Operations with data
 
-
     /*if((head2->cnt) == 1) free_head(head2);
     else if((head2->cnt) > 1) free_list(head2);        //LATER, mb in some func
     else if ((head2->cnt) == 0) free(head2);*/

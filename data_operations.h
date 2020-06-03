@@ -8,12 +8,23 @@
 #include "list.h"
 
 
+//Data_operations.c
 void menu(head* clipboard,head* head_file, char* filename);
 void add_info(head *head_file);
 void add_first(head *head_file, comps *data);
 void add_last(head *head_file, comps *data);
 void add_in_position(head *head_file, comps *data, int n);
+void edit_info(int n, head *head_file);
 
+//Data_operations_2.c
+void delete_info(head *head_file);
+float YearValue(node *p);
+float PriceValue(node *p);
+float ReviewValue(node *p);
+float RatingValue(node *p);
+int delete_value(float value, head *head, float (*funcName)(node*));
+void copy_info(head *clipboard,head *head_file);
+void paste_info(head *clipboard,head *head_file);
 
 
 #endif // DATA_OPERATIONS_H_INCLUDED
