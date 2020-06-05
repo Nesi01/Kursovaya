@@ -25,7 +25,7 @@ void menu(head* clipboard,head* head_file,char* filename)
             printf("|5| - Delete                  |\n");
             printf("|6| - Copy                    |\n");
             printf("|7| - Paste                   |\n");
-            printf("|8| - Save file               |\n");    //TODO TOOO
+            printf("|8| - Save file               |\n");
             printf("|0| - Exit                    |\n");
             printf("Your choice: ");
             scanf("%d", &choice);

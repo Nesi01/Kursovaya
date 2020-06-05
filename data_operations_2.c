@@ -35,7 +35,7 @@ void delete_info(head *head_file)
         switch(choice)
         {
         case 1:
-            chk = delete_value(value,head_file,kind[choice]);
+            /*chk = delete_value(value,head_file,kind[choice]);
             if (chk==0)
             {
                 system("cls");
@@ -48,9 +48,9 @@ void delete_info(head *head_file)
                 choice = 0;
             }
 
-            break;
+            break;*/
         case 2:
-            chk = delete_value(value,head_file,kind[choice]);
+           /* chk = delete_value(value,head_file,kind[choice]);
             if (chk==0)
             {
                 system("cls");
@@ -63,9 +63,9 @@ void delete_info(head *head_file)
                 choice = 0;
             }
 
-            break;
+            break;*/
         case 3:
-            chk = delete_value(value,head_file,kind[choice]);
+            /*chk = delete_value(value,head_file,kind[choice]);
             if (chk==0)
             {
                 system("cls");
@@ -78,7 +78,7 @@ void delete_info(head *head_file)
                 choice = 0;
             }
 
-            break;
+            break;*/
         case 4:
             chk = delete_value(value,head_file,kind[choice]);
             if (chk==0)
@@ -193,13 +193,13 @@ int delete_value(float value, head *head, float (*funcName)(node*))
     //Deleting head until data isn't appropriate//
     while(funcName(p1)==value)
     {
-        delete_node(1,head);
-        /*p = p1->next;
+        //delete_node(1,head);
+        p = p1->next;
         free(p1);
         p1 = p;
         p1->prev = NULL;
         head->first = p1;
-        head->cnt -= 1;*/
+        head->cnt -= 1;
         chk = 1;
     }
 
@@ -274,8 +274,8 @@ void copy_info(head *clipboard,head *head_file)
     node *temp;
 
     temp = head_file->first;
-    create_node(temp->data,clipboard);
     if(clipboard->cnt!=0) //MAKE CLEANING
+    create_node(temp->data,clipboard);
     for(i=1;i<head_file->cnt;i++)
     {
         temp = temp->next;
