@@ -35,6 +35,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="data_operations.h" />
+		<Unit filename="data_operations_2.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="file_operations.c">
 			<Option compilerVar="CC" />
 		</Unit>

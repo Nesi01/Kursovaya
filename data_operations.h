@@ -23,8 +23,13 @@ float PriceValue(node *p);
 float ReviewValue(node *p);
 float RatingValue(node *p);
 int delete_value(float value, head *head, float (*funcName)(node*));
+void delete_node(int num,head *head_file);
+
 void copy_info(head *clipboard,head *head_file);
 void paste_info(head *clipboard,head *head_file);
+
+void save_info(head* head_file,char* filename);
+void save_in_file(FILE *file, head *head_file);
 
 
 #endif // DATA_OPERATIONS_H_INCLUDED

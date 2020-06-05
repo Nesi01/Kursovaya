@@ -75,7 +75,8 @@ void menu(head* clipboard,head* head_file,char* filename)
                 else printf("Clipboard is empty\n");
                 break;
             case 8:
-
+                system("cls");
+                save_info(head_file,filename);
                 break;
             case 0:
                 system("cls");
