@@ -80,12 +80,13 @@ void free_head(head *q){
 
 void free_node(node *temp){
     if((temp->next) != NULL) temp->next = NULL;
-
+    if((temp -> prev) != NULL) temp -> prev = NULL;
 
     free(temp->data->name);
     free(temp->data->type);
     free(temp->data);
     free(temp);
+
 }
 
 
@@ -99,9 +100,9 @@ void free_list(head *q){
     n = q->cnt;
     free_head(q);
 
-    //while((temp->next) != NULL){
-
-    for(i=0;i<n-2;i++){
+    while((temp->next) != NULL){
+        p = NULL;
+    //for(i=0;i<n-2;i++){
         p = temp;
         temp = temp -> next;
         free_node(p);
@@ -130,6 +131,7 @@ void free_nodes_only(head *q){
 
 
     for(i=0;i<n-2;i++){
+  //  while((temp -> next) != NULL){
         p = temp;
         temp = temp -> next;
         free_node(p);
@@ -137,6 +139,6 @@ void free_nodes_only(head *q){
 
     free_node(temp);
 
-   // q->first=NULL;
-   // q->last=NULL;
+    q->first=NULL;
+    q->last=NULL;
 }

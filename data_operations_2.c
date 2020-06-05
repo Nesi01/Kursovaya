@@ -163,7 +163,10 @@ void copy_info(head *clipboard,head *head_file)
     temp = head_file->first;
 
     if(clipboard->cnt!=0)   free_nodes_only(clipboard); //MAKE CLEANING
+    //if(clipboard!=NULL)   free_at_all(clipboard); //MAKE CLEANING
+    //clipboard = create_head();
     create_node(temp->data,clipboard);
+
     for(i=1;i<head_file->cnt;i++)
     {
         temp = temp->next;
