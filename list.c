@@ -56,7 +56,7 @@ void list_out(head *head)
 }
 
 
-/*void list_out_reverse(head *head)
+void list_out_reverse(head *head)
 {
     node *p;
     int i;
@@ -76,7 +76,8 @@ void list_out(head *head)
         p = p->prev;
     }
     printf("\n");
-}*/
+}
+
 
 
 void normalize_id(head *head_file)
@@ -117,10 +118,11 @@ void free_list(head *q){
 
     node *temp = NULL;
     node *p = NULL;
-    int i,n;
+    //int i,n;
 
-    temp = q->first->next;
-    n = q->cnt;
+    //temp = q->first->next;
+    temp = q->first;
+    //n = q->cnt;
     free_head(q);
 
     while((temp->next) != NULL){
@@ -148,13 +150,14 @@ void free_nodes_only(head *q){
     node *p = NULL;
     int i,n;
 
-    temp = q->first->next;
+    //temp = q->first->next;
+    temp = q->first;
     n = q->cnt;
     q->cnt = 0;
 
 
-    for(i=0;i<n-2;i++){
-  //  while((temp -> next) != NULL){
+    //for(i=0;i<n-2;i++){
+    while((temp -> next) != NULL){
         p = temp;
         temp = temp -> next;
         free_node(p);

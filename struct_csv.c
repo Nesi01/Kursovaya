@@ -74,6 +74,30 @@ comps *struct_fill(char **str)
     return str0;
 }
 
+
+comps *copy_struct(comps *data)
+{
+    comps *str0=NULL;
+
+    str0=(comps*)malloc(sizeof(comps));
+    str0->name = (char*)malloc(sizeof(char)*32);
+    str0->type = (char*)malloc(sizeof(char)*32);
+    if(str0!=NULL)
+    {
+        strcpy(str0->name,data->name);
+        strcpy(str0->type,data->type);
+        //str0->name=data->name;
+        //str0->type=data->type;
+        str0->year=data->year;
+        str0->cost=data->cost;
+        str0->reviews=data->reviews;
+        str0->rating=data->rating;
+    }
+    return str0;
+}
+
+
+
 comps *new_struct()
 {
     comps *str0=NULL;

@@ -230,16 +230,19 @@ void copy_info(head *clipboard,head *head_file)
 {
     int i;
     node *temp;
+    comps *str0=NULL;
 
     temp = head_file->first;
 
-    if(clipboard->cnt!=0) //MAKE CLEANING
-    create_node(temp->data,clipboard);
+    if(clipboard->cnt!=0) free_nodes_only(clipboard);
+    str0 = copy_struct(temp->data);
+    create_node(str0,clipboard);
 
     for(i=1;i<head_file->cnt;i++)
     {
         temp = temp->next;
-        add_last(clipboard,temp->data);
+        str0 = copy_struct(temp->data);
+        add_last(clipboard,str0);
     }
 }
 
@@ -248,19 +251,23 @@ void paste_info(head *clipboard,head *head_file)
 {
     int i=1;
     node *temp;
+    comps *str0=NULL;
 
     temp = clipboard->first;
     if(head_file->cnt==0)
     {
-        create_node(temp->data,head_file);
+        str0 = copy_struct(temp->data);
+        create_node(str0,head_file);
         i = 2;
         temp = temp->next;
     }
-    add_last(head_file,temp->data);
+    str0 = copy_struct(temp->data);
+    add_last(head_file,str0);
     for(;i<clipboard->cnt;i++)
     {
         temp = temp->next;
-        add_last(head_file,temp->data);
+        str0 = copy_struct(temp->data);
+        add_last(head_file,str0);
     }
 }
 

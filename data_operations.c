@@ -3,7 +3,7 @@
 
 void menu(head* clipboard,head* head_file,char* filename)
 {
-    int choice, n;
+    int choice, n, is_reverse=0;
     comps *str0=NULL;
 
     system("cls");
@@ -14,7 +14,8 @@ void menu(head* clipboard,head* head_file,char* filename)
         {
             printf("\n");
             print_header();
-            list_out(head_file);
+            if(is_reverse==1) list_out_reverse(head_file);
+            else list_out(head_file);
 
             printf("| |     ACTIONS WITH DATA     |\n");
             printf("+-+---------------------------+\n");
@@ -60,7 +61,7 @@ void menu(head* clipboard,head* head_file,char* filename)
                 break;
             case 4:
                 system("cls");
-                sort_info(head_file);
+                is_reverse = sort_info(head_file,is_reverse);
 
                 break;
             case 5:

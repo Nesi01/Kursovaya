@@ -206,7 +206,7 @@ int search_between_value(float value0, float value2, head *head, float (*funcNam
 }
 
 
-void sort_info(head *head_file)
+int sort_info(head *head_file, int is_reverse)
 {
     int choice, chk, i;
     float temp, value0, value2;
@@ -243,7 +243,9 @@ void sort_info(head *head_file)
             //system("cls")
             break;
         case 5:
-            //reverse_list(head_file);
+            if(is_reverse==1) is_reverse = 0;
+            else is_reverse = 1;
+            choice = 0;
             system("cls");
 
             break;
@@ -257,6 +259,8 @@ void sort_info(head *head_file)
             break;
         }
     }while(choice!=0);
+
+    return is_reverse;
 }
 
 

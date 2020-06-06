@@ -8,6 +8,7 @@
 
 char **simple_split(char *str, int length, char sep);
 comps *struct_fill(char **str);
+comps *copy_struct(comps *data);
 comps *new_struct();
 void print_header();
 
