@@ -232,8 +232,10 @@ void copy_info(head *clipboard,head *head_file)
     node *temp;
 
     temp = head_file->first;
+
     if(clipboard->cnt!=0) //MAKE CLEANING
     create_node(temp->data,clipboard);
+
     for(i=1;i<head_file->cnt;i++)
     {
         temp = temp->next;
@@ -255,7 +257,7 @@ void paste_info(head *clipboard,head *head_file)
         temp = temp->next;
     }
     add_last(head_file,temp->data);
-    for(i;i<clipboard->cnt;i++)
+    for(;i<clipboard->cnt;i++)
     {
         temp = temp->next;
         add_last(head_file,temp->data);

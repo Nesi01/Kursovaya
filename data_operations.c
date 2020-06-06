@@ -233,6 +233,7 @@ void add_last(head *head_file, comps *data)
     head_file->cnt += 1;
     temp->id = head_file->cnt;
     temp->data = data;
+
 }
 
 
