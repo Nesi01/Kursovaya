@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1591388866 source:d:\github\kursovaya\main.c
+1591408451 source:d:\github\kursovaya\main.c
 	<stdio.h>
 	<stdlib.h>
 	"file_operations.h"
@@ -18,10 +18,10 @@
 	"structs.h"
 	"data_operations.h"
 
-1591388866 source:d:\github\kursovaya\data_operations.c
+1591410723 source:d:\github\kursovaya\data_operations.c
 	"data_operations.h"
 
-1591388865 d:\github\kursovaya\data_operations.h
+1591450176 d:\github\kursovaya\data_operations.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,10 +31,10 @@
 
 1591129018 d:\github\kursovaya\structs.h
 
-1591381166 source:d:\github\kursovaya\list.c
+1591450176 source:d:\github\kursovaya\list.c
 	"list.h"
 
-1591381166 d:\github\kursovaya\list.h
+1591450176 d:\github\kursovaya\list.h
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -52,6 +52,6 @@
 1591404062 source:d:\github\kursovaya\data_operations_2.c
 	"data_operations.h"
 
-1591403485 source:d:\github\kursovaya\data_operations_3.c
+1591414383 source:d:\github\kursovaya\data_operations_3.c
 	"data_operations.h"
 

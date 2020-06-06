@@ -59,6 +59,8 @@ void menu(head* clipboard,head* head_file,char* filename)
 
                 break;
             case 4:
+                system("cls");
+                sort_info(head_file);
 
                 break;
             case 5:

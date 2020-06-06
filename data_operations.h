@@ -36,4 +36,7 @@ void search_info(head *head_file);
 int search_value(float value, head *head, float (*funcName)(node*));
 int search_between_value(float value0, float value2, head *head, float (*funcName)(node*));
 
+void sort_info(head *head_file);
+void sort_value(head *head_file, float (*funcName)(node*));
+
 #endif // DATA_OPERATIONS_H_INCLUDED

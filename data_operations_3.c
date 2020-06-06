@@ -68,6 +68,7 @@ void search_info(head *head_file)
             }
             else
             {
+                normalize_id(head_file);
                 system("cls");
                 printf("Search results:\n");
                 printf("If you want more filters, make search again\n");
@@ -202,4 +203,101 @@ int search_between_value(float value0, float value2, head *head, float (*funcNam
     }
 
     return chk;
+}
+
+
+void sort_info(head *head_file)
+{
+    int choice, chk, i;
+    float temp, value0, value2;
+    float (*kind[5])(node*);
+
+
+    kind[1] = YearValue;
+    kind[2] = PriceValue;
+    kind[3] = ReviewValue;
+    kind[4] = RatingValue;
+    do
+    {
+        print_header();
+        list_out(head_file);
+        printf("\n| |       Sort by      |\n");
+        printf("+-+--------------------+\n");
+        printf("|1| - Year             |\n");
+        printf("|2| - Price            |\n");
+        printf("|3| - Reviews          |\n");
+        printf("|4| - Rating           |\n");
+        printf("|5| - Reverse          |\n");
+        printf("|0| - Cancel           |\n");
+        printf("Your choice: ");
+        scanf("%d", &choice);
+        //chk = 0;        //Check for appropriate data
+        switch(choice)
+        {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            sort_value(head_file,kind[choice]);
+            //normalize_id(head_file);
+            //system("cls")
+            break;
+        case 5:
+            //reverse_list(head_file);
+            system("cls");
+
+            break;
+        case 0:
+            system("cls");
+
+            break;
+        default:
+            system("cls");
+            puts("Incorrect input!");
+            break;
+        }
+    }while(choice!=0);
+}
+
+
+void sort_value(head *head_file, float (*funcName)(node*))
+{
+    node *p, *p1, *temp;
+    int i,k;
+
+    p1 = head_file->first;
+
+    for(i=0;i<head_file->cnt-1;i++)
+    {
+        p1 = head_file->first;
+        p = p1->next;
+        for(k=0;k<head_file->cnt-i-2;k++)
+        {
+            if(funcName(p1)>funcName(p))
+            {
+                /*temp = p1->prev;
+                p1->next = p->next;
+                p1->next->prev = p1;
+                p->prev = temp;
+                if(p->prev!=NULL) p->prev->next = p;
+                p->next = p1;
+                p1->prev = p;*/
+
+                if(p1->prev!= NULL) p1->prev->next = p;
+                p->prev = p1->prev;
+                temp = p->next;
+                p->next = p1;
+                p1->prev = p;
+                p1->next = temp;
+                p1->next->prev = p1;
+
+            }
+            else
+            {
+                if(p1->next!=NULL) p1 = p1->next;
+            }
+            if(p1->next!=NULL) p = p1->next;
+        }
+    }
+
 }

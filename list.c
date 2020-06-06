@@ -56,6 +56,29 @@ void list_out(head *head)
 }
 
 
+/*void list_out_reverse(head *head)
+{
+    node *p;
+    int i;
+
+    p = head->last;
+    //while(p != NULL){  //Isn't used because of circular list
+    for(i=0;i<head->cnt;i++)
+    {
+        printf("|%3d|%30s |%10s |%5d |%16.2f |%6d |%5.1f |\n",
+        p->id,
+        p->data->name,
+        p->data->type,
+        p->data->year,
+        p->data->cost,
+        p->data->reviews,
+        p->data->rating);
+        p = p->prev;
+    }
+    printf("\n");
+}*/
+
+
 void normalize_id(head *head_file)
 {
     node *temp = NULL;
