@@ -7,10 +7,9 @@ void delete_info(head *head_file)
     float value;
     float (*kind[5])(node*);
 
-
     kind[1] = YearValue;
-    kind[2] = PriceValue;
-    kind[3] = ReviewValue;
+    kind[2] = PriceValue;       //These functions return value
+    kind[3] = ReviewValue;      //that is stored in the node
     kind[4] = RatingValue;
     do
     {
@@ -50,7 +49,6 @@ void delete_info(head *head_file)
                 printf("Nodes have been deleted\n");
                 choice = 0;
             }
-
             break;
         case 5:
             printf("Enter number to delete: ");
@@ -72,7 +70,6 @@ void delete_info(head *head_file)
                 printf("Nodes have been deleted\n");
                 choice = 0;
             }
-
             break;
         case 6:
             printf("Enter two numbers: ");
@@ -105,11 +102,9 @@ void delete_info(head *head_file)
                 printf("Nodes between %d and %d have been deleted\n", card0,card2);
                 choice = 0;
             }
-
             break;
         case 0:
             system("cls");
-
             break;
         default:
             system("cls");
@@ -117,7 +112,6 @@ void delete_info(head *head_file)
             break;
         }
     }while(choice!=0);
-
 }
 
 
@@ -151,7 +145,6 @@ int delete_value(float value, head *head, float (*funcName)(node*))
     //Deleting head until data isn't appropriate//
     while(funcName(p1)==value)
     {
-        //delete_node(1,head);
         p = p1->next;
         free(p1);
         p1 = p;
@@ -160,7 +153,6 @@ int delete_value(float value, head *head, float (*funcName)(node*))
         head->cnt -= 1;
         chk = 1;
     }
-
     //Goes through list and delete nodes//
     //With appropriate data             //
     do
@@ -185,6 +177,7 @@ int delete_value(float value, head *head, float (*funcName)(node*))
 }
 
 
+//Deletes node with curtain id//
 void delete_node(int num,head *head_file)
 {
     node *p, *p1;
@@ -222,10 +215,10 @@ void delete_node(int num,head *head_file)
             p1 = p;
         }
     }
-
 }
 
 
+//Copies list to external list to paste in other file//
 void copy_info(head *clipboard,head *head_file)
 {
     int i;
@@ -318,17 +311,14 @@ void save_info(head* head_file,char* filename)
             printf("Information saved to %s\n",filename);
             break;
         case 0:
-
             break;
         default:
             system("cls");
             puts("Incorrect input!");
             break;
         }
-
     }while(choice!=0);
 }
-
 
 
 void save_in_file(FILE *file, head *head_file)
@@ -348,5 +338,4 @@ void save_in_file(FILE *file, head *head_file)
         fprintf(file,"%.1f\n",temp->data->rating);
         temp = temp->next;
     }
-
 }

@@ -16,7 +16,6 @@ head *create_head()
 }
 
 
-
 void create_node(comps *data, head *head)
 {
     node *temp=NULL;
@@ -39,10 +38,9 @@ void list_out(head *head)
     int i;
 
     p = head->first;
-    //while(p != NULL){  //Isn't used because of circular list
     for(i=0;i<head->cnt;i++)
     {
-        printf("|%3d|%30s |%10s |%5d |%16.2f |%6d |%5.1f |\n",
+        printf("|%3d|%30s |%12s |%5d |%16.2f |%6d |%5.1f |\n",
         p->id,
         p->data->name,
         p->data->type,
@@ -62,10 +60,9 @@ void list_out_reverse(head *head)
     int i;
 
     p = head->last;
-    //while(p != NULL){  //Isn't used because of circular list
     for(i=0;i<head->cnt;i++)
     {
-        printf("|%3d|%30s |%10s |%5d |%16.2f |%6d |%5.1f |\n",
+        printf("|%3d|%30s |%12s |%5d |%16.2f |%6d |%5.1f |\n",
         p->id,
         p->data->name,
         p->data->type,
@@ -79,7 +76,8 @@ void list_out_reverse(head *head)
 }
 
 
-
+//There is no manipulation with id in other functions    //
+//So after some functions it is necessary to rearrange id//
 void normalize_id(head *head_file)
 {
     node *temp = NULL;
@@ -110,7 +108,6 @@ void free_node(node *temp){
     free(temp->data->type);
     free(temp->data);
     free(temp);
-
 }
 
 
@@ -118,21 +115,16 @@ void free_list(head *q){
 
     node *temp = NULL;
     node *p = NULL;
-    //int i,n;
 
-    //temp = q->first->next;
     temp = q->first;
-    //n = q->cnt;
     free_head(q);
 
     while((temp->next) != NULL){
         p = NULL;
-    //for(i=0;i<n-2;i++){
         p = temp;
         temp = temp -> next;
         free_node(p);
     }
-
     free_node(temp);
 }
 
@@ -148,21 +140,15 @@ void free_nodes_only(head *q){
 
     node *temp = NULL;
     node *p = NULL;
-    //int i,n;
 
-    //temp = q->first->next;
     temp = q->first;
-    //n = q->cnt;
     q->cnt = 0;
 
-
-    //for(i=0;i<n-2;i++){
     while((temp -> next) != NULL){
         p = temp;
         temp = temp -> next;
         free_node(p);
     }
-
     free_node(temp);
 
     q->first=NULL;

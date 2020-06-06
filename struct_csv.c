@@ -1,7 +1,6 @@
 #include "struct_csv.h"
 
 
-
 char **simple_split(char *str, int length, char sep)
 {
     char **str_array=NULL;
@@ -11,7 +10,6 @@ char **simple_split(char *str, int length, char sep)
     {
         if(str[j]==sep) m++;
     }
-
     key=0;
     str_array=(char**)malloc((m+1)*sizeof(char*));
     if(str_array!=NULL)
@@ -86,8 +84,6 @@ comps *copy_struct(comps *data)
     {
         strcpy(str0->name,data->name);
         strcpy(str0->type,data->type);
-        //str0->name=data->name;
-        //str0->type=data->type;
         str0->year=data->year;
         str0->cost=data->cost;
         str0->reviews=data->reviews;
@@ -95,7 +91,6 @@ comps *copy_struct(comps *data)
     }
     return str0;
 }
-
 
 
 comps *new_struct()
@@ -128,6 +123,6 @@ comps *new_struct()
 
 void print_header()
 {
-    printf("|   |%30s |%10s |%5s |%9s |%4s|%5s|\n","Name of the bike component","Type","Year","Price(in pounds)","Reviews","Rating");
-    printf("+---+-------------------------------+-----------+------+-----------------+-------+------+\n");
+    printf("|   |%30s |%12s |%5s |%9s |%4s|%5s|\n","Name of the bike component","Type","Year","Price(in pounds)","Reviews","Rating");
+    printf("+---+-------------------------------+-------------+------+-----------------+-------+------+\n");
 }

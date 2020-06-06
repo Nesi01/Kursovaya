@@ -12,5 +12,4 @@ comps *copy_struct(comps *data);
 comps *new_struct();
 void print_header();
 
-
 #endif // STRUCT_CSV_H_INCLUDED

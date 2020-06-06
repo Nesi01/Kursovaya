@@ -10,7 +10,7 @@ void menu(head* clipboard,head* head_file,char* filename)
     do
     {
         printf("File %s\n",filename);
-        if(head_file->first!=NULL)
+        if(head_file->first!=NULL) //Check if list is empty or not
         {
             printf("\n");
             print_header();
@@ -21,8 +21,8 @@ void menu(head* clipboard,head* head_file,char* filename)
             printf("+-+---------------------------+\n");
             printf("|1| - Add new                 |\n");
             printf("|2| - Edit                    |\n");
-            printf("|3| - Search                  |\n");    //SKIPPED
-            printf("|4| - Sort                    |\n");    //SKIPPED
+            printf("|3| - Search                  |\n");
+            printf("|4| - Sort                    |\n");
             printf("|5| - Delete                  |\n");
             printf("|6| - Copy                    |\n");
             printf("|7| - Paste                   |\n");
@@ -57,12 +57,10 @@ void menu(head* clipboard,head* head_file,char* filename)
             case 3:
                 system("cls");
                 search_info(head_file);
-
                 break;
             case 4:
                 system("cls");
                 is_reverse = sort_info(head_file,is_reverse);
-
                 break;
             case 5:
                 system("cls");
@@ -85,7 +83,6 @@ void menu(head* clipboard,head* head_file,char* filename)
                 break;
             case 0:
                 system("cls");
-
                 break;
             default:
                 system("cls");
@@ -118,11 +115,9 @@ void menu(head* clipboard,head* head_file,char* filename)
                 system("cls");
                 if(clipboard->cnt!=0) paste_info(clipboard,head_file);
                 else printf("Clipboard is empty\n");
-
                 break;
             case 0:
                 system("cls");
-
                 break;
             default:
                 system("cls");
@@ -130,9 +125,7 @@ void menu(head* clipboard,head* head_file,char* filename)
                 break;
             }
         }
-
     } while(choice!=0);
-
 }
 
 
@@ -159,16 +152,16 @@ void add_info(head *head_file)
         case 1:
             system("cls");
             printf("Adding:\n");
-            str0 = new_struct();
+            str0 = new_struct();    //User inputs data for new node
             add_first(head_file,str0);
             system("cls");
             printf("Added the first\n");
             choice = 0;
             break;
-        case 2:     //User inputs data for new node
+        case 2:
             system("cls");
             printf("Adding:\n");
-            str0 = new_struct();
+            str0 = new_struct();    //User inputs data for new node
             add_last(head_file,str0);
             system("cls");
             printf("Added the last\n");
@@ -189,7 +182,6 @@ void add_info(head *head_file)
             system("cls");
             printf("Added into the position number %d\n",n);
             choice = 0;
-
             break;
         case 0:
             system("cls");
@@ -199,9 +191,7 @@ void add_info(head *head_file)
             puts("Incorrect input!");
             break;
         }
-
     } while(choice!=0);
-
 }
 
 
@@ -381,5 +371,4 @@ void edit_info(int n, head *head_file)
             break;
         }
     }while(choice!=0);
-
 }

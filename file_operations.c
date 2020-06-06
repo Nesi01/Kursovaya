@@ -1,7 +1,6 @@
 #include "file_operations.h"
 
 
-
 void open_csv(head* clipboard)
 {
     int slen;
@@ -26,7 +25,7 @@ void open_csv(head* clipboard)
         file = fopen(filename,"r");
     }
 
-    fseek(file, 0, SEEK_END);
+    fseek(file, 0, SEEK_END);//Check if file is empty or not
     if(ftell(file)!=0)
     {
         fseek(file, 0, SEEK_SET);
@@ -34,13 +33,9 @@ void open_csv(head* clipboard)
     }
     fclose(file);
 
-    //FUNC FROM DATA_OPERATIONS
-    //probably menu with: add,save,change,delete,sort,search
-    //OTHER FUNCS
     menu(clipboard,head_file,filename); //Operations with data
 
     free_at_all(head_file);
-
 
 }
 
@@ -74,12 +69,10 @@ void read_from_csv(FILE* file, head* head_file)
         slen=strlen(s1);
         s1[slen-1]='\0';
         slen=strlen(s1);
-
         s2=simple_split(s1,slen,sep);
         s3 = struct_fill(s2);
-        add_last(head_file,s3); //REPLACE
+        add_last(head_file,s3);
     }
-
 }
 
 

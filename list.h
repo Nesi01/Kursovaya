@@ -11,6 +11,7 @@ void create_node(comps *data, head *head);
 void list_out(head *head);
 void list_out_reverse(head *head);
 void normalize_id(head *head_file);
+
 void free_head(head *q);
 void free_node(node *temp);
 void free_list(head *q);

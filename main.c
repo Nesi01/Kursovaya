@@ -9,7 +9,6 @@
 
 int main()
 {
-
     int choice;
     head *clipboard=NULL; //to copy and paste through the files
 
@@ -54,9 +53,7 @@ int main()
 
     } while(choice!=0);
 
-
     free_at_all(clipboard);
-    //бшонкмхрэ нвхярйс CLIPBOARD
 
     return 0;
 }

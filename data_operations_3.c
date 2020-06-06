@@ -1,13 +1,11 @@
 #include "data_operations.h"
 
 
-
 void search_info(head *head_file)
 {
     int choice, chk, i;
     float temp, value0, value2;
     float (*kind[5])(node*);
-
 
     kind[1] = YearValue;
     kind[2] = PriceValue;
@@ -50,7 +48,6 @@ void search_info(head *head_file)
                 }
             }
             else choice = 0;
-
         }
         chk = 0;        //Check for appropriate data
         switch(choice)
@@ -74,11 +71,9 @@ void search_info(head *head_file)
                 printf("If you want more filters, make search again\n");
                 choice = 0;
             }
-
             break;
         case 0:
             system("cls");
-
             break;
         default:
             system("cls");
@@ -86,7 +81,6 @@ void search_info(head *head_file)
             break;
         }
     }while(choice!=0);
-
 }
 
 
@@ -97,6 +91,7 @@ int search_value(float value, head *head, float (*funcName)(node*))
 
     p1 = head->first;
 
+    //Check if appropriate data is in list//
     if(funcName(p1)==value) chk = 1;
     do
     {
@@ -108,27 +103,24 @@ int search_value(float value, head *head, float (*funcName)(node*))
 
     if(chk==1)
     {
-        //Deleting head until data isn't appropriate//
+        //Deleting head while data is inappropriate//
         while(funcName(p1)!=value)
         {
-            //delete_node(1,head);
             p = p1->next;
             free(p1);
             p1 = p;
             p1->prev = NULL;
             head->first = p1;
             head->cnt -= 1;
-           // chk = 1;
         }
 
         //Goes through list and delete nodes//
-        //With appropriate data             //
+        //With inappropriate data           //
         do
         {
             p = p1->next;
             if(funcName(p)!=value)
             {
-              //  chk = 1;
                 p1->next = p->next;
                 if(p->next!=NULL) p->next->prev = p1;
                 else head->last = p1;
@@ -151,7 +143,6 @@ int search_between_value(float value0, float value2, head *head, float (*funcNam
     node *p, *p1;
     int chk = 0;
 
-
     p1 = head->first;
 
     if((funcName(p1)>=value0)&&(funcName(p1)<=value2)) chk = 1;
@@ -167,28 +158,24 @@ int search_between_value(float value0, float value2, head *head, float (*funcNam
 
     if(chk==1)
     {
-        //Deleting head until data isn't appropriate//
+        //Deleting head while data is inappropriate//
         while((funcName(p1)<value0)||(funcName(p1)>value2))
         {
-            //delete_node(1,head);
             p = p1->next;
             free(p1);
             p1 = p;
             p1->prev = NULL;
             head->first = p1;
             head->cnt -= 1;
-         //   chk = 1;
         }
 
         //Goes through list and delete nodes//
-        //With appropriate data             //
+        //With inappropriate data           //
         do
         {
             p = p1->next;
-
             if((funcName(p)<value0)||(funcName(p)>value2))
             {
-              //  chk = 1;
                 p1->next = p->next;
                 if(p->next!=NULL) p->next->prev = p1;
                 else head->last = p1;
@@ -211,7 +198,6 @@ int sort_info(head *head_file, int is_reverse)
     int choice;
     float (*kind[5])(node*);
 
-
     kind[1] = YearValue;
     kind[2] = PriceValue;
     kind[3] = ReviewValue;
@@ -233,7 +219,6 @@ int sort_info(head *head_file, int is_reverse)
         printf("|0| - Cancel           |\n");
         printf("Your choice: ");
         scanf("%d", &choice);
-        //chk = 0;        //Check for appropriate data
         switch(choice)
         {
         case 1:
@@ -256,7 +241,6 @@ int sort_info(head *head_file, int is_reverse)
             else is_reverse = 1;
             choice = 0;
             system("cls");
-
             break;
         case 0:
             system("cls");
@@ -281,7 +265,7 @@ void sort_value(head *head_file, float (*funcName)(node*))
 
     p1 = head_file->first;
 
-    for(i=0;i<head_file->cnt-1;i++)
+    for(i=0;i<head_file->cnt-1;i++)  //Bubble sort
     {
         p1 = head_file->first;
         p = p1->next;
@@ -292,13 +276,11 @@ void sort_value(head *head_file, float (*funcName)(node*))
                 temp = p1->data;
                 p1->data = p->data;
                 p->data = temp;
-
             }
             p1 = p1->next;
             p = p1->next;
         }
     }
-
 }
 
 
@@ -323,7 +305,6 @@ void sort_string(head *head_file,int choice)
                     temp = p1->data;
                     p1->data = p->data;
                     p->data = temp;
-
                 }
             }
             else if(choice==2)
@@ -333,7 +314,6 @@ void sort_string(head *head_file,int choice)
                     temp = p1->data;
                     p1->data = p->data;
                     p->data = temp;
-
                 }
             }
             p1 = p1->next;
