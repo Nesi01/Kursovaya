@@ -21,7 +21,7 @@
 1591457293 source:d:\github\kursovaya\data_operations.c
 	"data_operations.h"
 
-1591457293 d:\github\kursovaya\data_operations.h
+1591468335 d:\github\kursovaya\data_operations.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,7 +31,7 @@
 
 1591129018 d:\github\kursovaya\structs.h
 
-1591457976 source:d:\github\kursovaya\list.c
+1591467558 source:d:\github\kursovaya\list.c
 	"list.h"
 
 1591457293 d:\github\kursovaya\list.h
@@ -52,6 +52,6 @@
 1591457561 source:d:\github\kursovaya\data_operations_2.c
 	"data_operations.h"
 
-1591457293 source:d:\github\kursovaya\data_operations_3.c
+1591468499 source:d:\github\kursovaya\data_operations_3.c
 	"data_operations.h"
 

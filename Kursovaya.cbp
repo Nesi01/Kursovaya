@@ -38,6 +38,9 @@
 		<Unit filename="data_operations_2.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="data_operations_3.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="file_operations.c">
 			<Option compilerVar="CC" />
 		</Unit>

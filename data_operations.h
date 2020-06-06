@@ -38,5 +38,6 @@ int search_between_value(float value0, float value2, head *head, float (*funcNam
 
 int sort_info(head *head_file,int is_reverse);
 void sort_value(head *head_file, float (*funcName)(node*));
+void sort_string(head *head_file,int choice);
 
 #endif // DATA_OPERATIONS_H_INCLUDED

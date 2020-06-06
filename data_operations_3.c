@@ -208,8 +208,7 @@ int search_between_value(float value0, float value2, head *head, float (*funcNam
 
 int sort_info(head *head_file, int is_reverse)
 {
-    int choice, chk, i;
-    float temp, value0, value2;
+    int choice;
     float (*kind[5])(node*);
 
 
@@ -220,14 +219,17 @@ int sort_info(head *head_file, int is_reverse)
     do
     {
         print_header();
-        list_out(head_file);
+        if(is_reverse==1) list_out_reverse(head_file);
+        else list_out(head_file);
         printf("\n| |       Sort by      |\n");
         printf("+-+--------------------+\n");
-        printf("|1| - Year             |\n");
-        printf("|2| - Price            |\n");
-        printf("|3| - Reviews          |\n");
-        printf("|4| - Rating           |\n");
-        printf("|5| - Reverse          |\n");
+        printf("|1| - Name             |\n");
+        printf("|2| - Type             |\n");
+        printf("|3| - Year             |\n");
+        printf("|4| - Price            |\n");
+        printf("|5| - Reviews          |\n");
+        printf("|6| - Rating           |\n");
+        printf("|7| - Reverse          |\n");
         printf("|0| - Cancel           |\n");
         printf("Your choice: ");
         scanf("%d", &choice);
@@ -236,13 +238,20 @@ int sort_info(head *head_file, int is_reverse)
         {
         case 1:
         case 2:
+            sort_string(head_file,choice);
+            system("cls");
+            choice = 0;
+            break;
         case 3:
         case 4:
-            sort_value(head_file,kind[choice]);
-            //normalize_id(head_file);
-            //system("cls")
-            break;
         case 5:
+        case 6:
+            sort_value(head_file,kind[choice-2]);
+            normalize_id(head_file);
+            system("cls");
+            choice = 0;
+            break;
+        case 7:
             if(is_reverse==1) is_reverse = 0;
             else is_reverse = 1;
             choice = 0;
@@ -266,7 +275,8 @@ int sort_info(head *head_file, int is_reverse)
 
 void sort_value(head *head_file, float (*funcName)(node*))
 {
-    node *p, *p1, *temp;
+    node *p, *p1;
+    comps *temp;
     int i,k;
 
     p1 = head_file->first;
@@ -275,33 +285,59 @@ void sort_value(head *head_file, float (*funcName)(node*))
     {
         p1 = head_file->first;
         p = p1->next;
-        for(k=0;k<head_file->cnt-i-2;k++)
+        for(k=0;k<head_file->cnt-i-1;k++)
         {
             if(funcName(p1)>funcName(p))
             {
-                /*temp = p1->prev;
-                p1->next = p->next;
-                p1->next->prev = p1;
-                p->prev = temp;
-                if(p->prev!=NULL) p->prev->next = p;
-                p->next = p1;
-                p1->prev = p;*/
-
-                if(p1->prev!= NULL) p1->prev->next = p;
-                p->prev = p1->prev;
-                temp = p->next;
-                p->next = p1;
-                p1->prev = p;
-                p1->next = temp;
-                p1->next->prev = p1;
+                temp = p1->data;
+                p1->data = p->data;
+                p->data = temp;
 
             }
-            else
-            {
-                if(p1->next!=NULL) p1 = p1->next;
-            }
-            if(p1->next!=NULL) p = p1->next;
+            p1 = p1->next;
+            p = p1->next;
         }
     }
 
+}
+
+
+void sort_string(head *head_file,int choice)
+{
+    node *p, *p1;
+    comps *temp;
+    int i,k;
+
+    p1 = head_file->first;
+
+    for(i=0;i<head_file->cnt-1;i++)
+    {
+        p1 = head_file->first;
+        p = p1->next;
+        for(k=0;k<head_file->cnt-i-1;k++)
+        {
+            if(choice==1)
+            {
+                if(strcmp(p1->data->name,p->data->name)>0)
+                {
+                    temp = p1->data;
+                    p1->data = p->data;
+                    p->data = temp;
+
+                }
+            }
+            else if(choice==2)
+            {
+                if(strcmp(p1->data->type,p->data->type)>0)
+                {
+                    temp = p1->data;
+                    p1->data = p->data;
+                    p->data = temp;
+
+                }
+            }
+            p1 = p1->next;
+            p = p1->next;
+        }
+    }
 }

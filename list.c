@@ -148,11 +148,11 @@ void free_nodes_only(head *q){
 
     node *temp = NULL;
     node *p = NULL;
-    int i,n;
+    //int i,n;
 
     //temp = q->first->next;
     temp = q->first;
-    n = q->cnt;
+    //n = q->cnt;
     q->cnt = 0;
 
 
