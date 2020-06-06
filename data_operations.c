@@ -54,6 +54,8 @@ void menu(head* clipboard,head* head_file,char* filename)
                 edit_info(n,head_file);
                 break;
             case 3:
+                system("cls");
+                search_info(head_file);
 
                 break;
             case 4:

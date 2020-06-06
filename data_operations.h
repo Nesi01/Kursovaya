@@ -31,5 +31,9 @@ void paste_info(head *clipboard,head *head_file);
 void save_info(head* head_file,char* filename);
 void save_in_file(FILE *file, head *head_file);
 
+//Data_operations_3.c
+void search_info(head *head_file);
+int search_value(float value, head *head, float (*funcName)(node*));
+int search_between_value(float value0, float value2, head *head, float (*funcName)(node*));
 
 #endif // DATA_OPERATIONS_H_INCLUDED

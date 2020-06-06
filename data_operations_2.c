@@ -35,50 +35,8 @@ void delete_info(head *head_file)
         switch(choice)
         {
         case 1:
-            /*chk = delete_value(value,head_file,kind[choice]);
-            if (chk==0)
-            {
-                system("cls");
-                printf("There is no such value\n\n");
-            }
-            else
-            {
-                system("cls");
-                printf("Nodes have been deleted\n");
-                choice = 0;
-            }
-
-            break;*/
         case 2:
-           /* chk = delete_value(value,head_file,kind[choice]);
-            if (chk==0)
-            {
-                system("cls");
-                printf("There is no such value\n\n");
-            }
-            else
-            {
-                system("cls");
-                printf("Nodes have been deleted\n");
-                choice = 0;
-            }
-
-            break;*/
         case 3:
-            /*chk = delete_value(value,head_file,kind[choice]);
-            if (chk==0)
-            {
-                system("cls");
-                printf("There is no such value\n\n");
-            }
-            else
-            {
-                system("cls");
-                printf("Nodes have been deleted\n");
-                choice = 0;
-            }
-
-            break;*/
         case 4:
             chk = delete_value(value,head_file,kind[choice]);
             if (chk==0)
@@ -332,6 +290,9 @@ void save_info(head* head_file,char* filename)
             save_in_file(file,head_file);
 
             fclose(file);
+            choice = 0;
+            system("cls");
+            printf("Information saved to %s\n",filename);
             break;
         case 2:
             printf("Enter name of file to save: ");
@@ -343,6 +304,9 @@ void save_info(head* head_file,char* filename)
             save_in_file(file,head_file);
 
             fclose(file);
+            choice = 0;
+            system("cls");
+            printf("Information saved to %s\n",filename);
             break;
         case 0:
 
@@ -353,18 +317,13 @@ void save_info(head* head_file,char* filename)
             break;
         }
 
-    }while(2<choice<0);
-
-
-    system("cls");
-    if(choice!=0) printf("Information saved to %s\n",filename);
+    }while(choice!=0);
 }
 
 
 
 void save_in_file(FILE *file, head *head_file)
 {
-    char *one_struct;
     int i;
     node *temp;
 
